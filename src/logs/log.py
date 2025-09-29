@@ -6,6 +6,9 @@ from datetime import datetime
 import re
 import traceback
 
+from pathlib import Path
+DEFAULT_LOG_DIR = Path(__file__).resolve().parent / "logs"
+
 def _safe_name(name: str) -> str:
     name = name.strip()
     name = re.sub(r"\s+", "_", name)
@@ -16,7 +19,7 @@ class DatedLogger:
     def __init__(
             self,
             base_name: str="Multi_Agent_Foodi",
-            directory: str | Path = "logs",
+            directory: str | Path = DEFAULT_LOG_DIR,
             level: int = logging.INFO,
             date_format: str = "%Y-%m-%d",
             encoding: str = "utf-8",
@@ -121,10 +124,30 @@ class DatedLogger:
             self._setup_handlers(info_level=self.logger.handlers[0].level if self.logger.handlers else logging.INFO)
 
 
+def build_logger(
+        base_name: str = "Multi_Agent_Foodi",
+        directory: str | Path = DEFAULT_LOG_DIR,
+        level: int = logging.INFO,
+        date_format: str = "%Y-%m-%d",
+        encoding: str = "utf-8",
+        time_format: str = "%Y-%m-%d %H:%M:%S",
+) -> DatedLogger:
+    """
+    Return a ready-to-use DatedLogger.
+    Keeps a stable name per (date, base_name) to avoid duplicate handlers.
+    """
+    return DatedLogger(
+        base_name=base_name,
+        directory=directory,
+        level=level,
+        date_format=date_format,
+        encoding=encoding,
+        time_format=time_format,
+    )
 
 
 # if __name__ == "__main__":
-#     log = DatedLogger(base_name="my_service", directory="logs", level=logging.INFO)
+#     log = build_logger()
 #
 #     log.info("Service starting")
 #     log.debug("Some debug detail")  # will be filtered out at INFO level
