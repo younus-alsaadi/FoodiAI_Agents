@@ -164,3 +164,4 @@ cython_debug/
 
 !/src/Graph/llmcompiler/main_graph.py
 !/src/Graph/llmcompiler/LLMCompiler.ipynb
+!/src/Graph/llmcompiler/Langsimth_test.ipynb
