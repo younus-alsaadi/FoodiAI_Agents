@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "food agent"
+version = "0.1.0"
+description = ""
+authors = ["Younus AL-Saadi <alsaadi.younus@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.14"
+fastapi = "0.116.1"
+uvicorn = {version = "0.35.0", extras = ["standard"]}
+python-multipart = "0.0.20"
+python-dotenv = "1.1.1"
+pydantic-settings = "2.10.1"
+langchain = "0.3.27"
+langsmith = "0.4.30"
+langgraph = "0.6.7"
+transformers = "4.56.1"
+autogen = "0.9.9"
+numexpr = "2.12.1"
+langchain-openai = "0.3.33"
+langchain-community = "0.3.29"
+langchain-tavily = "0.2.11"
+torch="2.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
