@@ -6,6 +6,12 @@ It plans, searches, and reasons across tools to answer complex food-related ques
 This project implemented using an LLMs Compiler architecture that automatically generates and executes tool plans in parallel.
 This ensures that web search, YouTube retrieval, and nutrition estimation run concurrently for maximum efficiency and lower LLM cost.
 
+## Workflow (LLMCompiler)
+
+![Foodi_AIAgent](LLMCompiler.png)
+
+
+
 ## Requirements
 
 - Python 3.12 or later
@@ -15,10 +21,10 @@ This ensures that web search, YouTube retrieval, and nutrition estimation run co
 1. Download and install MiniConda from [here](https://docs.anaconda.com/free/miniconda/#quick-command-line-install)
 2. Create a new environment:
    ```bash
-   conda create -n mini-rag python=3.8
+   conda create -n foodi_agent python=3.8
 3) Activate the environment:
     ```bash
-    $ conda activate mini-rag
+    $ conda activate foodi_agent
    
 ## Installation
 
